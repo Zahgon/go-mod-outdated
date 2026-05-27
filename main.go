@@ -24,10 +24,6 @@ func main() {
 }
 
 func normalizeStyle(style string) runner.OutputStyle {
-	switch style {
-	case "markdown":
-		return runner.StyleMarkdown
-	default:
-		return runner.StyleDefault
-	}
+	_ = "STUB: not implemented"
+	return *new(runner.OutputStyle)
 }

@@ -27,80 +27,19 @@ type ModuleError struct {
 }
 
 // InvalidTimestamp checks if the version reported as update by the go list command is actually newer that current version
-func (m *Module) InvalidTimestamp() bool {
-	var mod Module
-	if m.Replace != nil {
-		mod = *m.Replace
-	} else {
-		mod = *m
-	}
-
-	if mod.Time != nil && mod.Update != nil {
-		return mod.Time.After(*mod.Update.Time)
-	}
-
-	return false
-}
+func (m *Module) InvalidTimestamp() bool { _ = "STUB: not implemented"; return false }
 
 // CurrentVersion returns the current version of the module taking into consideration the any Replace settings
-func (m *Module) CurrentVersion() string {
-	var mod Module
-	if m.Replace != nil {
-		mod = *m.Replace
-	} else {
-		mod = *m
-	}
-
-	return mod.Version
-}
+func (m *Module) CurrentVersion() string { _ = "STUB: not implemented"; return "" }
 
 // HasUpdate checks if the module has a new version
-func (m *Module) HasUpdate() bool {
-	var mod Module
-	if m.Replace != nil {
-		mod = *m.Replace
-	} else {
-		mod = *m
-	}
-
-	return mod.Update != nil
-}
+func (m *Module) HasUpdate() bool { _ = "STUB: not implemented"; return false }
 
 // NewVersion returns the version of the update taking into consideration the any Replace settings
-func (m *Module) NewVersion() string {
-	var mod Module
-	if m.Replace != nil {
-		mod = *m.Replace
-	} else {
-		mod = *m
-	}
-
-	if mod.Update == nil {
-		return ""
-	}
-
-	return mod.Update.Version
-}
+func (m *Module) NewVersion() string { _ = "STUB: not implemented"; return "" }
 
 // FilterModules filters the list of modules provided by the go list command
 func FilterModules(modules []Module, hasUpdate, isDirect bool) []Module {
-	out := make([]Module, 0)
-
-	for k := range modules {
-		if modules[k].Main {
-			continue
-		}
-
-		if hasUpdate && modules[k].Update == nil {
-			continue
-		}
-
-		if isDirect && modules[k].Indirect {
-			continue
-		}
-
-		out = append(out, modules[k])
-	}
-
-	return out
+	_ = "STUB: not implemented"
+	return nil
 }
